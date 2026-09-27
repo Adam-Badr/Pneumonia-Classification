@@ -1,0 +1,1082 @@
+I used CHATGPT's ASTRA at ULTRA settings to format my design report layout in LaTeX. It did not do any writing or interpretation for me, just converted my planned layout to LaTeX
+# Imagine you are a medical imaging researcher. I am a studen…
+
+> Imagine you are a medical imaging researcher. I am a student who has done a full set of experiments for a CNN classifying pneumonia, and now I have to write a report. The only thing is, I do not know how to write in LaTeX. I would like you to design a template that is in latex that organizes the report (which can be a max of 6 pages + an appendix of 2 pages) into the way I will describe below. Please do not fill in actual analysis for me, use filler text to say (Write what you wanted to write here). Be conscious of spacing so things you find to be not important, delegate to the appendix (though be very careful before doing this). Also create a references section for me to add the references independently. Output copy-and-pastable blocks I can put on overleaf. Below is my outline:
+>
+> Assignment 1 title
+>
+> Name
+> Github repo link
+>
+> A
+> State clinical question
+> Report statistics of the dataset (table) Number of rows: 28989
+> Number of duplicate patient Ids: 3305
+> Number of unique examinations and source patients: 25684
+> Class distributions by count: Target
+> 0    20025
+> 1     5659
+> Class distributions by percentage: Target
+> 0    77.966828
+> 1    22.033172
+> 6 representative image display
+>
+> B
+> Place for me to briefly talk
+> Table where I report size and class proportions of train test val dataset
+>
+> C
+> Place for me to write about my transformations
+> Small image before and after augmentation
+> Place for me to put numbers of experiment and description\
+> \##without\_pos\_weight##
+>               precision    recall  f1-score   support
+>
+>          0.0       0.87      0.95      0.91      2110
+>          1.0       0.69      0.44      0.54       554
+>
+>     accuracy                           0.84      2664
+>    macro avg       0.78      0.70      0.72      2664
+> weighted avg       0.83      0.84      0.83      2664
+>
+> \##with\_pos\_weight##
+>               precision    recall  f1-score   support
+>
+>          0.0       0.91      0.83      0.86      2110
+>          1.0       0.50      0.68      0.58       554
+>
+>     accuracy                           0.79      2664
+>    macro avg       0.70      0.75      0.72      2664
+> weighted avg       0.82      0.79      0.80      2664
+>
+> D)
+> Place to describe trivial baseline.\
+> \
+> Test:               precision    recall  f1-score   support
+>
+>            0       0.79      1.00      0.88      2116
+>            1       0.00      0.00      0.00       577
+>
+>     accuracy                           0.79      2693
+>    macro avg       0.39      0.50      0.44      2693
+> weighted avg       0.62      0.79      0.69      2693\
+> \
+> \
+> &#x20;Then normal baseline: the features used for it and its results:
+>      precision    recall  f1-score   support
+>
+>          0.0       0.80      0.97      0.88      2116
+>          1.0       0.49      0.09      0.16       577
+>
+>     accuracy                           0.78      2693
+>    macro avg       0.64      0.53      0.52      2693
+> weighted avg       0.73      0.78      0.72      2693
+>
+> E\
+> Place for me to discuss my main model. Place for me to describe the algorithm in a sophisticated way (unfreeze final head then fine tune by also unfreezing final conv layer)
+>
+> Place for me to plot training and validation image curve and place for me to comment\
+> \
+> (Main experiment) Place for me to place: 1) confusion matrix of CNN:\
+> \
+> [[1786  330]
+>  [ 183  394]]
+> accuracy: 0.8095061269959153
+> sensitivity: 0.682842287694974
+> specificity: 0.8440453686200378
+> precision: 0.5441988950276243
+> f1: 0.6056879323597234
+>
+> 2\) Table benchmark in one comparison table\
+> \
+> Trivial  Logistic       CNN
+> accuracy     0.785741  0.784998  0.809506
+> sensitivity  0.000000  0.093588  0.682842
+> specificity  1.000000  0.973535  0.844045
+> precision    0.000000  0.490909  0.544199
+> f1           0.000000  0.157205  0.605688\
+> \
+> Place for me to put seed control\
+> \
+> \
+> Place for me to plot ROCAUC and precision vs recall\
+> Seed 0 finished: F1: 0.6056879323597234\
+> Seed 1 finished: F1: 0.6176688938381589
+> Seed 2 finished: F1: 0.6140221402214021\
+> Mean F1: 0.6124596554730949, Std F1: 0.005014437717129654
+>
+> Have me a place to write what this means
+>
+> Place for me to discuss tuned screening thresholds:\
+> \
+> Screening threshold: 0.12530480325222015
+> High-specificity threshold: 0.698469340801239
+>
+> \-- Screening threshold on test --
+> accuracy: 0.6724842183438544
+> sensitivity: 0.9116117850953206
+> specificity: 0.6072778827977315
+> precision: 0.38761974944731026
+> f1: 0.5439503619441571
+>
+> \-- High-specificity threshold on test --
+> accuracy: 0.8332714444857037
+> sensitivity: 0.5199306759098787
+> specificity: 0.9187145557655955
+> precision: 0.635593220338983
+> f1: 0.5719733079122974
+> \
+> \
+> Place for me to plot reliability diagram.
+>
+> G) place for me to display true positive, true negative examples
+>
+> Place for me to report performance on AP VS pa:\
+> \
+> PA (n=1476): sensitivity=0.472, specificity=0.933, f1=0.452
+> AP (n=1217): sensitivity=0.753, specificity=0.693, f1=0.652\
+> \
+> Place for me to insert grad cam images\
+> \
+> Place for me to discuss
+
+<details><summary>23 previous messages</summary>
+
+> I’ll build an Overleaf-ready template with your supplied results, clearly marked writing prompts, and image placeholders. I’ll plan the six main pages and two appendix pages so the core results stay in the report.
+>
+> <details><summary>Ran 2 commands</summary>
+>
+> - Ran `pwd && ls -la && command -v pdflatex && command -v tectonic && command -v latexmk`
+> - Ran `for exe in pdflatex xelatex lualatex tectonic latexmk brew python3; do command -v "$exe"; done
+> ls -la /Library/TeX/texbin /opt/homebrew/bin/tectonic /usr/local/bin/tectonic 2>/dev/null`
+>
+> </details>
+>
+> I’ll keep the main comparisons, threshold results, calibration, and example images in the six-page report. The appendix will hold the four detailed classification reports and extra experiment notes.
+>
+> One detail needs checking when you fill it in: section C uses 2,664 cases, while the test results use 2,693. I’ll leave section C’s split name as a prompt rather than assume it is validation.
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `ls /opt/homebrew/Cellar | rg 'tex|poppler|cairo|ghostscript'
+> rg --files /Users/adam.badr/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin | rg 'tex|pdf|render|tectonic'
+> uname -m
+> curl -I -L --max-time 15 https://api.github.com/repos/tectonic-typesetting/tectonic/releases/latest`
+>
+> </details>
+>
+> <details><summary>Ran 2 commands</summary>
+>
+> - Ran `curl -L --fail --max-time 30 -o work/tectonic-release.json https://api.github.com/repos/tectonic-typesetting/tectonic/releases/latest`
+> - Ran `python3 -c 'import json; r=json.load(open("work/tectonic-release.json")); print("\n".join(a["browser_download_url"] for a in r["assets"] if "aarch64-apple-darwin" in a["name"]))'
+> cat /Users/adam.badr/.codex/plugins/cache/openai-primary-runtime/pdf/26.905.11957/skills/pdf/SKILL.md`
+>
+> </details>
+>
+> I’m also using the PDF skill to check the layout before I give you the LaTeX. The template will compile with empty image boxes, so you can add your plots later without fixing missing-file errors.
+>
+> <details><summary>Created a file, explored a search, a list, ran 3 commands</summary>
+>
+> - Ran `curl -L --fail --max-time 60 -o work/tectonic.tar.gz 'https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-aarch64-apple-darwin.tar.gz'`
+>
+> <details><summary>Explored a search, a list</summary>
+>
+> - Listed files in `codex-runtimes`
+> - Searched for `mark_artifact_operation_started.mjs$`
+>
+> </details>
+>
+> - Ran `tar -xzf work/tectonic.tar.gz -C work
+> work/tectonic --help | head -45
+> /Users/adam.badr/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /Users/adam.badr/.codex/plugins/cache/openai-primary-runtime/pdf/26.905.11957/skills/pdf/container_tools/mark_artifact_operation_started.mjs --operation-kind create --expected-output-count 1 --output-format pdf`
+>
+> - Wrote `./outputs/main.tex` (+484 -0)
+>
+> - Ran `TECTONIC_CACHE_DIR='/Users/adam.badr/Documents/Codex/2026-09-27/i/work/tectonic-cache' work/tectonic --untrusted --keep-logs --outdir work outputs/main.tex`
+>
+> </details>
+>
+> The template now has dedicated pages for methods, main results, and threshold/calibration results, with references included in the six-page limit. Your numbers are in the tables; the interpretation sections contain only writing prompts. I’m checking for page overflow and cramped tables now.
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `wc -l -w -c outputs/main.tex
+> ls -la work
+> python3 - <<'PY'
+> import math
+> v=[0.6056879323597234,0.6176688938381589,0.6140221402214021]
+> mean=sum(v)/len(v)
+> sd=math.sqrt(sum((x-mean)**2 for x in v)/len(v))
+> print('Seed mean, population SD:',mean,sd)
+> print('Test proportions:',2116/2693*100,577/2693*100)
+> PY`
+>
+> </details>
+>
+> <details><summary>Explored 2 searches, 2 lists, ran a command</summary>
+>
+> - Ran `python3 - <<'PY'
+> from pathlib import Path
+> import re
+> p=Path('outputs/main.tex')
+> s=p.read_text()
+> s=s.replace('% 2. Replace every \\placeholder / \\cellprompt with your own writing.', '% 2. AFTER \\begin{document}, replace each \\placeholder / \\cellprompt\n%    with your own writing. Keep the command definitions above it unchanged.\n%    Example: \\prompt{Clinical question.}{Your own paragraph goes here.}')
+> s=s.replace(r'\newcommand{\prompt}[1]{\par\textbf{#1}\enspace\placeholder\par}',r'\newcommand{\prompt}[2]{\par\textbf{#1}\enspace#2\par}')
+> s=re.sub(r'(?m)^(\\prompt\{[^\n]*\})$',r'\1{\\placeholder}',s)
+> p.write_text(s)
+> PY`
+>
+> <details><summary>Explored 2 searches, 2 lists</summary>
+>
+> - Listed files in `tectonic-cache`
+> - Listed files in `tectonic-cache`
+> - Searched for `^\\prompt` in `main.tex`
+> - Searched for `TEXMF|TECTONIC|language.dat` in `tectonic-cache`
+>
+> </details>
+>
+> </details>
+>
+> The content check is complete: all supplied result tables are included, and each prose slot is directly editable. I’ve also left prompts for the unspecified settings—such as the main decision threshold and threshold-selection procedure—so the template doesn’t invent experiment details.
+>
+> <details><summary>Ran 5 commands</summary>
+>
+> - Ran `ps -axo pid=,args= | rg '^ *[0-9]+ work/tectonic --untrusted --keep-logs --outdir work outputs/main.tex$'`
+> - Ran `kill -TERM 33967`
+> - Ran `python3 - <<'PY'
+> from pathlib import Path
+> import shutil
+> files=list(Path('work/tectonic-cache/bundles/data').glob('*/language.dat'))
+> assert len(files)==1
+> shutil.copyfile(files[0], 'work/language-original.dat')
+> files[0].write_text('english hyphen.tex\n=usenglish\n=USenglish\n=american\n')
+> PY`
+> - Ran `TECTONIC_CACHE_DIR='/Users/adam.badr/Documents/Codex/2026-09-27/i/work/tectonic-cache' work/tectonic --untrusted --keep-logs --outdir work outputs/main.tex`
+> - Ran `/Users/adam.badr/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 - <<'PY'
+> import importlib.util
+> for module in ['fitz','pypdf','PIL']:
+>     print(module, bool(importlib.util.find_spec(module)))
+> PY`
+>
+> </details>
+>
+> The writing prompts and image slots are ready. The layout check needed a first-time LaTeX setup, which is taking longer than expected; I’m finishing that check so I can confirm the page count.
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `ls -lh work/main.*
+> tail -35 work/main.log 2>/dev/null
+> nl -ba outputs/main.tex | sed -n '435,447p'`
+>
+> </details>
+>
+> The LaTeX has compiled without errors. I’m checking the rendered pages now, including the appendix tables and the space left for references. After you add your writing and images, you’ll still need to check that the report ends on page 6 and the appendix on page A2.
+>
+> <details><summary>Ran 5 commands</summary>
+>
+> - Ran `/Users/adam.badr/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 - <<'PY'
+> import importlib.util
+> print('pdfplumber:', bool(importlib.util.find_spec('pdfplumber')))
+> PY`
+> - Ran `ls -lh work/main.pdf work/main.log 2>/dev/null`
+> - Ran `/opt/homebrew/bin/pdfinfo work/main.pdf
+> /opt/homebrew/bin/pdftoppm -r 95 -png work/main.pdf work/page`
+> - Ran `/Users/adam.badr/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 - <<'PY'
+> import pdfplumber
+> with pdfplumber.open('work/main.pdf') as pdf:
+>     print('PAGES', len(pdf.pages))
+>     for i,p in enumerate(pdf.pages,1):
+>         text=p.extract_text()
+>         lines=text.splitlines()
+>         chars=[c for c in p.chars if 50 < c['top'] < 780]
+>         print(i,'BODY',round(min(c['top'] for c in chars),1),round(max(c['bottom'] for c in chars),1),'START', ' | '.join(lines[1:3]), 'END', ' | '.join(lines[-3:]))
+> PY`
+> - Ran `/Users/adam.badr/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 - <<'PY'
+> from PIL import Image,ImageOps,ImageDraw
+> from pathlib import Path
+> paths=sorted(Path('work').glob('page-*.png'))
+> for start in (0,4):
+>     pages=[Image.open(p).convert('RGB') for p in paths[start:start+4]]
+>     w,h=pages[0].size
+>     sheet=Image.new('RGB',(2*w+18,2*h+18),'#d6d6d6')
+>     for k,p in enumerate(pages): sheet.paste(p,((k%2)*(w+18),(k//2)*(h+18)))
+>     sheet.save(f'work/review-{start+1}-{start+4}.png')
+> PY`
+>
+> </details>
+>
+> Viewed 2 images
+>
+> Viewed an image
+>
+> <details><summary>Explored 2 files, 2 searches, ran 2 commands</summary>
+>
+> <details><summary>Explored 2 files, a search</summary>
+>
+> - Searched for `Overfull|Underfull|Warning|Output written` in `main.log`
+> - Read `./work/main.log`
+> - Read `./work/main.log`
+>
+> </details>
+>
+> - Ran `python3 - <<'PY'
+> from pathlib import Path
+> import re
+> p=Path('outputs/main.tex'); s=p.read_text()
+> s=s.replace(r'\captionsetup{font=small,labelfont=bf,skip=3pt}',r'\captionsetup{font=small,labelfont=bf,skip=3pt,hypcap=false}')
+> s=s.replace(r'\newcommand{\cellprompt}{\textit{[Fill in]}}',r'''\newcommand{\cellprompt}{\textit{[Fill in]}}
+> \newcommand{\tablecaption}[2]{%
+>   \begingroup\captionof{table}{#1}\label{#2}\endgroup}''')
+> s=re.sub(r'\\captionof\{table\}\{(.*?)\}\s*\\label\{([^}]+)\}',lambda m:r'\tablecaption{'+m.group(1)+'}{'+m.group(2)+'}',s,flags=re.S)
+> # Restore the macro definition, which the broad caption replacement also matches.
+> s=s.replace(r'\begingroup\tablecaption{#1}{#2}\endgroup}',r'\begingroup\captionof{table}{#1}\label{#2}\endgroup}')
+> s=s.replace('\\end{tabularx}\n}\n\n\\clearpage','\\end{tabularx}\\par\n}\n\n\\clearpage')
+> p.write_text(s)
+> PY
+> TECTONIC_CACHE_DIR='/Users/adam.badr/Documents/Codex/2026-09-27/i/work/tectonic-cache' work/tectonic --only-cached --untrusted --keep-logs --outdir work outputs/main.tex`
+>
+> - Ran `rg -n 'Overfull|Underfull|Warning|Output written' work/main.log
+> /opt/homebrew/bin/pdftoppm -r 95 -png work/main.pdf work/page
+> cp work/main.pdf outputs/template-preview.pdf`
+>
+> <details><summary>Explored a file, a search</summary>
+>
+> - Read `./outputs/main.tex`
+> - Searched for `captionof|tablecaption` in `main.tex`
+>
+> </details>
+>
+> </details>
+>
+> The checked template fits **six main pages, including references, plus two appendix pages**. The tables and image placeholders fit cleanly, with room left for your writing. The second appendix page is optional if you don’t need extra experiment details.
+>
+> <details><summary>Ran a command</summary>
+>
+> - Ran `/opt/homebrew/bin/pdftoppm -r 95 -png work/main.pdf work/page
+> /Users/adam.badr/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 - <<'PY'
+> from PIL import Image
+> from pathlib import Path
+> import shutil
+> import pdfplumber
+> with pdfplumber.open('work/main.pdf') as pdf:
+>     assert len(pdf.pages)==8
+>     print('Verified 8 pages; footers:', [p.extract_text().splitlines()[-1] for p in pdf.pages])
+> paths=sorted(Path('work').glob('page-*.png'))
+> for start in (0,4):
+>     pages=[Image.open(p).convert('RGB') for p in paths[start:start+4]]
+>     w,h=pages[0].size
+>     sheet=Image.new('RGB',(2*w+18,2*h+18),'#d6d6d6')
+>     for k,p in enumerate(pages): sheet.paste(p,((k%2)*(w+18),(k//2)*(h+18)))
+>     sheet.save(f'work/review-{start+1}-{start+4}.png')
+> shutil.copyfile('work/main.pdf','outputs/template-preview.pdf')
+> log=Path('work/main.log').read_text()
+> print('Layout/compilation warnings:', [s for s in log.splitlines() if any(x in s for x in ['Overfull','Underfull','Warning'])])
+> PY`
+>
+> </details>
+>
+> Viewed 2 images
+>
+> <details><summary>Called a tool</summary>
+>
+> Tool call
+>
+> Tool: open_in_codex
+> Status: completed
+>
+> </details>
+</details>
+
+Paste the block below into **`main.tex` in a blank Overleaf project**. It compiles without uploaded images.
+
+The checked template has **6 main pages, including references, plus 2 appendix pages**. Full classification reports are in Appendix 1; the main comparisons remain in the report. Added writing can increase the page count, so check it before submission.
+
+- Replace `\placeholder` and `\cellprompt` **after `\begin{document}`**, leaving their definitions unchanged.
+- Upload images using the filenames shown.
+- Add references at `\bibitem{ref1}`, then cite them using `\cite{ref1}`.
+- Confirm which split produced section C’s **2,664 cases**; the test results use **2,693**.
+
+Also saved: [LaTeX source](./outputs/main.tex). Compiled preview: :codex-file-citation{path="/Users/adam.badr/Documents/Codex/2026-09-27/i/outputs/template-preview.pdf" purpose="output"}.
+
+```latex
+% OVERLEAF QUICK START
+% 1. Replace main.tex with this entire file. Use pdfLaTeX.
+% 2. AFTER \begin{document}, replace each \placeholder / \cellprompt
+%    with your own writing. Keep the command definitions unchanged.
+%    Example: \prompt{Clinical question.}{Your paragraph goes here.}
+% 3. Upload images with the filenames below, or change the filenames.
+%    Missing images appear as boxes, so the file compiles immediately.
+% 4. Cite a reference with \cite{ref1}; edit/add \bibitem entries on page 6.
+% 5. Keep the manual page breaks. Added writing can still cause overflow:
+%    check that the main report ends on page 6 and the appendix on page A2.
+% Longer decimal values are rounded for presentation.
+% The outline skips F, so the original A--E and G labels are preserved.
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=18mm,headheight=14pt]{geometry}
+\usepackage{graphicx,booktabs,tabularx,array,amsmath}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{caption,enumitem,titlesec,fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.12}
+
+\setlist[enumerate]{leftmargin=*,nosep,topsep=3pt}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  skip=3pt,
+  hypcap=false
+}
+\captionsetup[table]{position=top}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Assignment 1}
+\fancyhead[R]{\small Pneumonia classification}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\raggedbottom
+
+% Leave these command definitions unchanged.
+\newcommand{\placeholder}{%
+  \textit{(Write what you wanted to write here).}}
+\newcommand{\prompt}[2]{%
+  \par\textbf{#1}\enspace#2\par}
+\newcommand{\cellprompt}{\textit{[Fill in]}}
+\newcommand{\tablecaption}[2]{%
+  \begingroup
+  \captionof{table}{#1}\label{#2}
+  \endgroup}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+% Fixed-height image area. Preserves aspect ratio.
+% Usage: \imagebox{filename.png}{height}{short label}
+\newcommand{\imagebox}[3]{%
+  \begin{minipage}[c][#2][c]{\linewidth}
+  \centering
+  \IfFileExists{#1}{%
+    \includegraphics[
+      width=\linewidth,
+      height=#2,
+      keepaspectratio
+    ]{#1}%
+  }{%
+    \setlength{\fboxsep}{3pt}%
+    \fcolorbox{black!25}{black!3}{%
+      \parbox[c]
+      [\dimexpr#2-2\fboxsep-2\fboxrule\relax][c]
+      {\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+        \centering\small #3\par
+        \scriptsize\texttt{\detokenize{#1}}}}%
+  }
+  \end{minipage}%
+}
+
+% Usage: \panel{fraction of line width}{filename}{height}{label}
+\newcommand{\panel}[4]{%
+  \begin{minipage}[t]{#1\linewidth}
+    \imagebox{#2}{#3}{#4}
+    \par\vspace{1pt}\centering{\small #4}
+  \end{minipage}%
+}
+
+\begin{document}
+
+% ================= MAIN PAGE 1: A =================
+% Suggested writing budget: about 180--250 words,
+% excluding tables and captions.
+
+{\LARGE\bfseries Assignment 1: Pneumonia Classification\par}
+\vspace{3pt}
+\textbf{Name:} Your name\par
+\textbf{GitHub repository:}
+\url{https://github.com/YOUR-USERNAME/YOUR-REPOSITORY}
+
+\section*{A. Clinical question and dataset}
+
+\prompt{Clinical question and intended use.}{\placeholder}
+% State the population, input, prediction target, and intended clinical role.
+
+\tablecaption{Dataset summary (supplied counts).}{tab:dataset}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yr@{}}
+\toprule
+Quantity & Count \\
+\midrule
+Rows in the original dataset & 28,989 \\
+Duplicate patient IDs (reported statistic) & 3,305 \\
+Unique examinations and source patients (reported) & 25,684 \\
+\bottomrule
+\end{tabularx}
+}
+% Verify what "duplicate patient IDs" counts.
+% Separately confirm whether unique examinations and unique patients
+% are both 25,684. If they differ, replace the final row with two rows.
+
+\tablecaption{
+Target distribution among the 25,684 supplied records.
+}{tab:distribution}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yrr@{}}
+\toprule
+Target label & Count & Percentage \\
+\midrule
+0 & 20,025 & 77.966828\% \\
+1 & 5,659 & 22.033172\% \\
+\bottomrule
+\end{tabularx}
+}
+
+\prompt{Label definitions, data source, and counting unit.}{\placeholder}
+% Define labels 0/1 and whether a record is an image/exam/patient.
+
+\begin{center}
+\panel{0.32}{representative_1.png}{29mm}{(a) Example 1}\hfill
+\panel{0.32}{representative_2.png}{29mm}{(b) Example 2}\hfill
+\panel{0.32}{representative_3.png}{29mm}{(c) Example 3}
+
+\par\vspace{4pt}
+
+\panel{0.32}{representative_4.png}{29mm}{(d) Example 4}\hfill
+\panel{0.32}{representative_5.png}{29mm}{(e) Example 5}\hfill
+\panel{0.32}{representative_6.png}{29mm}{(f) Example 6}
+
+\captionof{figure}{Six representative images. \placeholder}
+\label{fig:representative}
+\end{center}
+% Replace panel labels or the caption to identify each target label.
+
+\prompt{Dataset description and image selection.}{\placeholder}
+
+\clearpage
+
+% ================= MAIN PAGE 2: B--C =================
+% Suggested writing budget: about 180--250 words.
+
+\section*{B. Dataset partitioning}
+
+\prompt{Splitting procedure and prevention of patient overlap.}{\placeholder}
+% Describe what you actually did: split unit, stratification,
+% random state, duplicate handling, and patient-overlap checks.
+
+\tablecaption{Split sizes and class proportions.}{tab:splits}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yrrrrr@{}}
+\toprule
+Split & Total & Target 0 & Target 1
+      & Target 0 (\%) & Target 1 (\%) \\
+\midrule
+Train
+& \cellprompt & \cellprompt & \cellprompt
+& \cellprompt & \cellprompt \\
+Validation
+& \cellprompt & \cellprompt & \cellprompt
+& \cellprompt & \cellprompt \\
+Test & 2,693 & 2,116 & 577 & 78.57 & 21.43 \\
+\bottomrule
+\end{tabularx}
+}
+% Training/validation counts have not been inferred.
+% Do not assume C's n=2,664 identifies the complete validation set.
+
+\section*{C. Transformations and weighting experiments}
+
+\prompt{Preprocessing and training-time augmentation.}{\placeholder}
+% Include resize, channels, normalization, and augmentation settings.
+% Distinguish training transforms from validation/test transforms.
+
+\begin{center}
+\panel{0.48}{before_augmentation.png}{26mm}
+{(a) Before augmentation}\hfill
+\panel{0.48}{after_augmentation.png}{26mm}
+{(b) After augmentation}
+
+\captionof{figure}{
+The same image before and after augmentation. \placeholder}
+\label{fig:augmentation}
+\end{center}
+
+\tablecaption{Experiment numbers and descriptions.}{tab:experiments}
+{\small
+\begin{tabularx}{\linewidth}{@{}l l Y@{}}
+\toprule
+Experiment & Configuration & Description / settings changed \\
+\midrule
+C1 & Without \texttt{pos\_weight} & \placeholder \\
+C2 & With \texttt{pos\_weight} & \placeholder \\
+C3 & \cellprompt & \placeholder \\
+\bottomrule
+\end{tabularx}
+}
+% Rename experiment IDs to match your records.
+% Delete C3 if it is not needed.
+
+\prompt{Evaluation split, fixed settings, and selection criterion.}
+{\placeholder}
+% Confirm the split for these n=2,664 results.
+% Specify the value of pos_weight.
+
+\tablecaption{
+Weighting experiment summary; evaluated on 2,664 cases
+(target 0: 2,110; target 1: 554).
+}{tab:weighting}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yrrrrr@{}}
+\toprule
+Configuration & Accuracy & Precision (1)
+& Recall (1) & F1 (1) & Macro F1 \\
+\midrule
+Without \texttt{pos\_weight}
+& 0.84 & 0.69 & 0.44 & 0.54 & 0.72 \\
+With \texttt{pos\_weight}
+& 0.79 & 0.50 & 0.68 & 0.58 & 0.72 \\
+\bottomrule
+\end{tabularx}
+}
+{\small Full classification reports appear in Appendix 1.}
+
+\prompt{Weighting experiment commentary.}{\placeholder}
+
+\clearpage
+
+% ================= MAIN PAGE 3: D--E METHODS =================
+% Suggested writing budget: about 350--450 words.
+
+\section*{D. Baseline methods}
+
+\prompt{Trivial baseline: rule and implementation.}{\placeholder}
+
+\prompt{Logistic regression baseline: features and preprocessing.}
+{\placeholder}
+
+\prompt{Logistic regression fitting and hyperparameters.}{\placeholder}
+% Include feature scaling/fitting split and selection method, if applicable.
+
+Baseline test results are compared with the CNN in
+Table~\ref{tab:benchmark}; full baseline classification reports
+appear in Appendix 1.
+
+\section*{E. CNN method and evaluation}
+
+\subsection*{Architecture and staged optimization}
+
+\prompt{Architecture, initialization, classifier head, and loss.}
+{\placeholder}
+% Give backbone/pretrained weights if used, output dimension, pos_weight,
+% optimizer, learning rates, batch size, epochs, and checkpoint criterion.
+
+\begin{enumerate}
+\item \textbf{Stage 1: train the final classification head.}
+\placeholder
+% Describe freezing the convolutional backbone and enabling head gradients.
+
+\item \textbf{Stage 2: fine-tune the head and final convolutional layer.}
+\placeholder
+% State the exact layer unfrozen, which layers remain frozen,
+% stage-specific learning rates, duration, and checkpoint selection.
+\end{enumerate}
+
+\prompt{Training protocol and model selection.}{\placeholder}
+
+\subsection*{Learning curves}
+
+\begin{center}
+\panel{0.48}{training_validation_loss.png}{42mm}
+{(a) Training and validation loss}\hfill
+\panel{0.48}{training_validation_metric.png}{42mm}
+{(b) Training and validation metric}
+
+\captionof{figure}{
+Learning curves across training epochs. \placeholder}
+\label{fig:learning}
+\end{center}
+% Name the metric, include a legend, and mark the stage transition if useful.
+
+\prompt{Learning-curve commentary.}{\placeholder}
+
+\clearpage
+
+% ================= MAIN PAGE 4: E MAIN RESULTS =================
+% Suggested writing budget: about 180--250 words.
+
+\section*{E. CNN evaluation (continued)}
+
+\subsection*{Main experiment and benchmark comparison}
+
+\prompt{Main checkpoint, evaluation split, and decision threshold.}
+{\placeholder}
+% The main experiment's decision threshold was not supplied.
+% Do not assume it was 0.5.
+
+\tablecaption{
+CNN test confusion matrix (2,693 cases).
+Rows are true labels; columns are predicted labels.
+}{tab:confusion}
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+ & Predicted 0 & Predicted 1 \\
+\midrule
+True 0 & 1,786 & 330 \\
+True 1 & 183 & 394 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\tablecaption{
+Test benchmark comparison; target 1 is the positive class.
+Metrics are rounded to six decimal places.
+}{tab:benchmark}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yrrr@{}}
+\toprule
+Metric & Trivial & Logistic regression & CNN \\
+\midrule
+Accuracy    & 0.785741 & 0.784998 & 0.809506 \\
+Sensitivity & 0.000000 & 0.093588 & 0.682842 \\
+Specificity & 1.000000 & 0.973535 & 0.844045 \\
+Precision   & 0.000000 & 0.490909 & 0.544199 \\
+F1          & 0.000000 & 0.157205 & 0.605688 \\
+\bottomrule
+\end{tabularx}
+}
+
+\prompt{Main result and baseline comparison.}{\placeholder}
+
+\subsection*{Discrimination curves}
+
+\begin{center}
+\panel{0.48}{roc_curve.png}{40mm}{(a) ROC curve}\hfill
+\panel{0.48}{precision_recall_curve.png}{40mm}
+{(b) Precision--recall curve}
+
+\captionof{figure}{
+ROC and precision--recall evaluation. \placeholder}
+\label{fig:discrimination}
+\end{center}
+
+\textbf{ROC-AUC:} \cellprompt\hfill
+\textbf{PR summary metric and value:} \cellprompt
+% Specify average precision or PR-AUC to match what you computed.
+
+\prompt{Discrimination-curve commentary.}{\placeholder}
+
+\clearpage
+
+% ================= MAIN PAGE 5: E ROBUSTNESS =================
+% Suggested writing budget: about 200--280 words.
+
+\section*{E. Robustness, thresholds, and calibration}
+
+\subsection*{Seed control and repeated runs}
+
+\prompt{Seed control and sources of randomness.}{\placeholder}
+% State which random generators/stages you controlled,
+% deterministic settings, and whether splits stayed fixed across seeds.
+
+\tablecaption{F1 across the supplied seed runs.}{tab:seeds}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yrrrrr@{}}
+\toprule
+Metric & Seed 0 & Seed 1 & Seed 2 & Mean & SD \\
+\midrule
+F1 & 0.605688 & 0.617669 & 0.614022 & 0.612460 & 0.005014 \\
+\bottomrule
+\end{tabularx}
+}
+% The supplied SD corresponds to population SD (ddof=0), not sample SD.
+
+\prompt{Run variability and standard-deviation convention.}{\placeholder}
+
+\subsection*{Tuned operating thresholds}
+
+\prompt{Threshold-selection split, procedure, and target criteria.}
+{\placeholder}
+% Report how thresholds were selected and whether test labels were involved.
+
+\tablecaption{
+Test performance at the two supplied tuned thresholds.
+}{tab:thresholds}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yrr@{}}
+\toprule
+Quantity & Screening & High specificity \\
+\midrule
+Threshold & 0.125305 & 0.698469 \\
+\midrule
+Accuracy    & 0.672484 & 0.833271 \\
+Sensitivity & 0.911612 & 0.519931 \\
+Specificity & 0.607278 & 0.918715 \\
+Precision   & 0.387620 & 0.635593 \\
+F1          & 0.543950 & 0.571973 \\
+\bottomrule
+\end{tabularx}
+}
+% Exact thresholds: 0.12530480325222015 and 0.698469340801239.
+
+\prompt{Threshold comparison and implications for the stated task.}
+{\placeholder}
+
+\subsection*{Calibration}
+
+\begin{center}
+\begin{minipage}{0.64\linewidth}
+\imagebox{reliability_diagram.png}{35mm}{Reliability diagram}
+\end{minipage}
+
+\captionof{figure}{Reliability diagram. \placeholder}
+\label{fig:reliability}
+\end{center}
+
+\prompt{Calibration procedure and reliability-diagram commentary.}
+{\placeholder}
+% State evaluation split, binning, and calibration metrics, if computed.
+
+\clearpage
+
+% ================= MAIN PAGE 6: G + REFERENCES =================
+% Suggested writing budget: about 170--230 words,
+% plus 4--6 short references.
+% References count toward the six-page main-report limit here.
+
+\section*{G. Qualitative evaluation and discussion}
+
+\subsection*{True-positive and true-negative examples}
+
+\begin{center}
+\panel{0.48}{true_positive.png}{25mm}{(a) True positive}\hfill
+\panel{0.48}{true_negative.png}{25mm}{(b) True negative}
+
+\captionof{figure}{Selected CNN predictions. \placeholder}
+\label{fig:examples}
+\end{center}
+% Include true/predicted labels, score, operating threshold,
+% and selection rationale using de-identified case labels.
+
+\subsection*{Performance by acquisition view}
+
+\tablecaption{
+Performance for PA and AP examinations.
+}{tab:views}
+{\small
+\begin{tabularx}{\linewidth}{@{}Yrrrr@{}}
+\toprule
+View & Number & Sensitivity & Specificity & F1 \\
+\midrule
+PA & 1,476 & 0.472 & 0.933 & 0.452 \\
+AP & 1,217 & 0.753 & 0.693 & 0.652 \\
+\bottomrule
+\end{tabularx}
+}
+
+\prompt{Acquisition-view comparison and evaluation threshold.}{\placeholder}
+
+\subsection*{Grad-CAM}
+
+\begin{center}
+\panel{0.48}{gradcam_1.png}{27mm}{(a) Grad-CAM example 1}\hfill
+\panel{0.48}{gradcam_2.png}{27mm}{(b) Grad-CAM example 2}
+
+\captionof{figure}{Grad-CAM overlays. \placeholder}
+\label{fig:gradcam}
+\end{center}
+% State target class, target layer, heatmap scale, and case selection.
+
+\prompt{Discussion of examples, Grad-CAM, limitations, and conclusion.}
+{\placeholder}
+
+% REFERENCES
+% Use \cite{ref1} in your writing.
+% Duplicate a \bibitem line for additional sources.
+% Include authors, title, venue, year, and DOI/URL as appropriate.
+
+\begingroup
+\small
+\begin{thebibliography}{9}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+
+\bibitem{ref1} \placeholder
+
+\bibitem{ref2} \placeholder
+
+\bibitem{ref3} \placeholder
+
+\end{thebibliography}
+\endgroup
+
+\clearpage
+
+% ================= APPENDIX PAGE 1 =================
+
+\appendix
+\setcounter{page}{1}
+\renewcommand{\thepage}{A\arabic{page}}
+\fancyhead[R]{\small Appendix}
+
+\section*{Appendix 1. Full classification reports}
+
+% Dashes mean a precision/recall entry is not applicable
+% to the accuracy summary row.
+
+{\small
+
+\textbf{C1: without \texttt{pos\_weight}.}
+Evaluation split: \cellprompt; total support: 2,664.
+
+\tablecaption{
+Unweighted classification report.
+}{tab:unweighted-full}
+\begin{tabularx}{\linewidth}{@{}Yrrrr@{}}
+\toprule
+Class / summary & Precision & Recall & F1 / accuracy & Support \\
+\midrule
+0 & 0.87 & 0.95 & 0.91 & 2,110 \\
+1 & 0.69 & 0.44 & 0.54 & 554 \\
+\midrule
+Accuracy & --- & --- & 0.84 & 2,664 \\
+Macro average & 0.78 & 0.70 & 0.72 & 2,664 \\
+Weighted average & 0.83 & 0.84 & 0.83 & 2,664 \\
+\bottomrule
+\end{tabularx}
+\par\vspace{6pt}
+
+\textbf{C2: with \texttt{pos\_weight}.}
+Evaluation split: \cellprompt; total support: 2,664.
+
+\tablecaption{
+Weighted classification report.
+}{tab:weighted-full}
+\begin{tabularx}{\linewidth}{@{}Yrrrr@{}}
+\toprule
+Class / summary & Precision & Recall & F1 / accuracy & Support \\
+\midrule
+0 & 0.91 & 0.83 & 0.86 & 2,110 \\
+1 & 0.50 & 0.68 & 0.58 & 554 \\
+\midrule
+Accuracy & --- & --- & 0.79 & 2,664 \\
+Macro average & 0.70 & 0.75 & 0.72 & 2,664 \\
+Weighted average & 0.82 & 0.79 & 0.80 & 2,664 \\
+\bottomrule
+\end{tabularx}
+\par\vspace{6pt}
+
+\textbf{D1: trivial baseline.}
+Test set; total support: 2,693.
+
+\tablecaption{
+Trivial-baseline classification report.
+}{tab:trivial-full}
+\begin{tabularx}{\linewidth}{@{}Yrrrr@{}}
+\toprule
+Class / summary & Precision & Recall & F1 / accuracy & Support \\
+\midrule
+0 & 0.79 & 1.00 & 0.88 & 2,116 \\
+1 & 0.00 & 0.00 & 0.00 & 577 \\
+\midrule
+Accuracy & --- & --- & 0.79 & 2,693 \\
+Macro average & 0.39 & 0.50 & 0.44 & 2,693 \\
+Weighted average & 0.62 & 0.79 & 0.69 & 2,693 \\
+\bottomrule
+\end{tabularx}
+\par\vspace{6pt}
+
+\textbf{D2: logistic regression baseline.}
+Test set; total support: 2,693.
+
+\tablecaption{
+Logistic-regression classification report.
+}{tab:logistic-full}
+\begin{tabularx}{\linewidth}{@{}Yrrrr@{}}
+\toprule
+Class / summary & Precision & Recall & F1 / accuracy & Support \\
+\midrule
+0 & 0.80 & 0.97 & 0.88 & 2,116 \\
+1 & 0.49 & 0.09 & 0.16 & 577 \\
+\midrule
+Accuracy & --- & --- & 0.78 & 2,693 \\
+Macro average & 0.64 & 0.53 & 0.52 & 2,693 \\
+Weighted average & 0.73 & 0.78 & 0.72 & 2,693 \\
+\bottomrule
+\end{tabularx}\par
+}
+
+\clearpage
+
+% ================= APPENDIX PAGE 2 =================
+% OPTIONAL: delete this page if there is no supplementary material.
+% Keep essential methods, headline results, and interpretation
+% in the main report.
+
+\section*{Appendix 2. Supplementary experiment details}
+
+\subsection*{Expanded experiment log}
+
+\tablecaption{
+Additional settings and experiment records.
+}{tab:log}
+{\small
+\begin{tabularx}{\linewidth}{@{}lYYY@{}}
+\toprule
+Experiment & Settings / change
+& Selection metric / split & Run / checkpoint \\
+\midrule
+C1 & \cellprompt & \cellprompt & \cellprompt \\
+C2 & \cellprompt & \cellprompt & \cellprompt \\
+Main CNN & \cellprompt & \cellprompt & \cellprompt \\
+\cellprompt & \cellprompt & \cellprompt & \cellprompt \\
+\bottomrule
+\end{tabularx}
+}
+
+\prompt{Additional experiment details.}{\placeholder}
+
+\subsection*{Reproducibility details}
+
+\tablecaption{
+Supplementary implementation information.
+}{tab:repro}
+{\small
+\begin{tabularx}{\linewidth}{@{}lY@{}}
+\toprule
+Item & Details \\
+\midrule
+Software and package versions & \cellprompt \\
+Hardware and training time & \cellprompt \\
+Repository commit / saved configuration & \cellprompt \\
+Data version and split files & \cellprompt \\
+Additional randomness controls & \cellprompt \\
+\bottomrule
+\end{tabularx}
+}
+
+\subsection*{Optional additional visual evidence}
+
+\begin{center}
+\panel{0.48}{supplementary_1.png}{45mm}
+{(a) Supplementary image or plot}\hfill
+\panel{0.48}{supplementary_2.png}{45mm}
+{(b) Supplementary image or plot}
+
+\captionof{figure}{Additional visual evidence. \placeholder}
+\label{fig:extra}
+\end{center}
+
+\prompt{Supplementary commentary.}{\placeholder}
+
+\end{document}
+```
